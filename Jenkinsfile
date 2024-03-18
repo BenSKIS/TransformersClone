@@ -4,18 +4,33 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+                echo 'Building...'
+                sh '''
+                python -m JenkinsPractice venv
+                . venv/bin/activate
+                pip install -r requirements.txt
+                '''
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
+                echo 'Testing...'
+                // Your testing steps go here
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying..'
+                echo 'Deploying...'
+                // Your deployment steps go here
             }
         }
     }
+    post {
+        always {
+            echo 'Cleaning up...'
+            sh 'rm -rf JenkinsPractice'
+        }
+    }
 }
+
+
