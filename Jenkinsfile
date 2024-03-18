@@ -1,10 +1,10 @@
 pipeline {
-    agent {
-        docker {
+    agent any
+      /*  docker {
             image 'python:3.10' // Specify your desired Python version
             args '-u root:root' // Run as root if necessary
         }
-    }
+    }  /*
 
     stages {
         stage('Build') {
