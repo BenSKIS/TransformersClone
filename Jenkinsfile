@@ -1,6 +1,10 @@
 pipeline {
     agent any // Use a Docker agent or any other agent depending on your needs
 
+    environment {
+        PYTHON = '/usr/bin/python3'
+    }
+
     stages {
         stage('Build') {
             steps {
