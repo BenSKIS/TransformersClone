@@ -6,8 +6,7 @@ pipeline {
             steps {
                 echo 'Building...'
                 sh '''
-                sh '/usr/bin/python3 -m JenkinsPractice venv'
-                #python3 -m JenkinsPractice venv
+                sh '/usr/bin/python3 -m venv JenkinsPractice'
                 . venv/bin/activate
                 pip install -r requirements.txt
                 '''
