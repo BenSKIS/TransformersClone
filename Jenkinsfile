@@ -13,7 +13,7 @@ pipeline {
                 // Use the PYTHON environment variable to specify the Python interpreter
                 sh '${PYTHON} -m venv venv' // Create a virtual environment
                 sh '. venv/bin/activate' // Activate the virtual environment
-                sh 'pip install -r requirements.txt' // Install dependencies
+                sh 'pip3 install -r requirements.txt' // Install dependencies
             }
         }
         stage('Test') {
