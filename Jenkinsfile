@@ -10,26 +10,28 @@ pipeline {
             steps {
                 echo 'Building...'
                 
-                // Use the PYTHON environment variable to specify the Python interpreter
-                sh '${PYTHON} -m venv venv' // Create a virtual environment
-                sh '. venv/bin/activate' // Activate the virtual environment
-                sh 'pip3 install -r requirements.txt' // Install dependencies
+                // Create a virtual environment
+                sh '${PYTHON} -m venv venv'
+                // Directly use pip from the virtual environment to install dependencies
+                sh 'venv/bin/pip install -r requirements.txt'
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing...'
-                // Ensure the virtual environment is activated before testing
-                // Make sure to activate the virtual environment
-                // Insert your testing commands here, e.g., `sh 'python -m unittest discover'`
+                // Directly use python from the virtual environment for testing
+                // Replace 'python -m unittest discover' with your actual test command
+                // For example, if you're using pytest, it would be 'venv/bin/python -m pytest'
+                sh 'venv/bin/python -m unittest discover'
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Deploying...'
                 // Ensure any necessary environment setup for deployment
+                // Directly use python from the virtual environment if needed
+                // For example, if deploying with a Python script: sh 'venv/bin/python deploy_script.py'
                 // Insert your deployment commands here
-                // Example: sh './deploy.sh'
             }
         }
     }
