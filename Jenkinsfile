@@ -20,7 +20,7 @@ pipeline {
             steps {
                 echo 'Testing...'
                 // Ensure the virtual environment is activated before testing
-                sh '. venv/bin/activate' // Make sure to activate the virtual environment
+                // Make sure to activate the virtual environment
                 // Insert your testing commands here, e.g., `sh 'python -m unittest discover'`
             }
         }
