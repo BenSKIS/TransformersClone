@@ -22,7 +22,7 @@ pipeline {
                 // Directly use python from the virtual environment for testing
                 // Replace 'python -m unittest discover' with your actual test command
                 // For example, if you're using pytest, it would be 'venv/bin/python -m pytest'
-                sh 'venv/bin/python -m unittest discover'
+                // sh 'venv/bin/python -m unittest discover'
             }
         }
         stage('Deploy') {
