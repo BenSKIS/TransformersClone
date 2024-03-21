@@ -21,6 +21,7 @@ pipeline {
                 echo 'Testing...'
                 // Check all requirements are met
                 sh 'venv/bin/python check_requirements.py'
+                echo 'All Packages In "requirements.py" succesfully installed'
             }
         }
         stage('Deploy') {
